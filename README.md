@@ -1,6 +1,8 @@
-# UniTrack
+# UniTrack – University Database System
 
-UniTrack is a PostgreSQL project for building and practicing a university database. It helps you learn relational schema design, SQL queries, joins, aggregation, views, transactions, indexes, JSONB, full-text search, and triggers while managing professors, students, courses, and enrollments.
+UniTrack is a PostgreSQL-based database project designed to manage basic university information such as students, professors, courses, and enrollments.
+
+The project focuses on practicing relational database concepts and writing SQL queries to retrieve and work with connected academic data.
 
 ## Project Structure
 
@@ -27,102 +29,65 @@ unitrack/
     └── explain_analyze/
 ```
 
-## Schema Summary
+## 📌 Features
 
-- `professors`
-  - `id` primary key
-  - `name`
-  - `department`
+- Student, professor, and course management
+- Student-course enrollment records
+- Relational table design
+- Primary and foreign key relationships
+- CRUD operations
+- SQL JOIN queries
+- Data filtering and sorting
+- Aggregate queries and grouping
+- Subqueries
+- Common Table Expressions (CTEs)
+- Views
+- Transactions
 
-- `students`
-  - `id` primary key
-  - `name`
-  - `age`
-  - `email`
-  - `gpa`
-  - `metadata` JSONB
+## 🗄️ Main Tables
 
-- `courses`
-  - `id` primary key
-  - `title`
-  - `credit`
-  - `professor_id` foreign key
-  - `max_capacity`
-  - `enrolled_count`
-  - `description`
-  - `description_tsv`
+- **Students** – stores student information
+- **Professors** – stores professor information and departments
+- **Courses** – stores course details and assigned professors
+- **Enrollment** – connects students with the courses they take
 
-- `enrollement`
-  - `student_id` foreign key
-  - `course_id` foreign key
-  - `grade`
-  - `enrolled_date`
-  - `semester`
-
-- `deleted_students_log`
-  - `student_id`
-  - `name`
-  - `deleted_at`
-
-## Setup
-
-1. Create the database.
-
-```sql
-CREATE DATABASE unitrack;
-```
-
-2. Connect to it in PostgreSQL.
-3. Run the schema files in order.
-
-## Run Order
-
-Run these files from top to bottom:
+### Basic Relationship
 
 ```text
-schema/01_create_tables.sql
-schema/02_seed_data.sql
-schema/03_alter_tables.sql
-sql/03_joins.sql
-sql/04_basic_queries.sql
-sql/05_aggregations.sql
-sql/06_intermediate.sql
-sql/07_views.sql
-sql/08_transactions.sql
-sql/09_indexes_optimization.sql
-sql/10_json_fulltext.sql
-sql/11_procedures_triggers.sql
-sql/12_advanced_queries.sql
+Students ───< Enrollment >─── Courses ───> Professors
 ```
 
-## What Each Phase Adds
+## 🔗 JOIN Practice
 
-- Phase 1: project setup
-- Phase 2: core tables and constraints
-- Phase 3: seed data
-- Phase 4: basic `SELECT` queries
-- Phase 5: joins
-- Phase 6: aggregation reports
-- Phase 7: subqueries and CTEs
-- Phase 8: schema extensions for GPA, capacity, and semester
-- Phase 9: views
-- Phase 10: transactions
-- Phase 11: indexes and query plans
-- Phase 12: JSONB and full-text search
-- Phase 13: procedures and triggers
-- Phase 14: advanced analytical queries
+The project includes practical examples of:
 
-## Notes
+- INNER JOIN
+- LEFT JOIN
+- RIGHT JOIN
+- FULL OUTER JOIN
+- SELF JOIN
+- Multi-table JOINs
 
-- The project intentionally keeps the current names `enrollement` and `credit` in the SQL files.
-- See [Phases.md](./Phases.md) for the learning-first phase plan.
-- The SQL files are written for PostgreSQL.
+For example, students can be connected with their enrolled courses through the enrollment table.
 
-## Useful Checks
+## 🛠️ Technologies
 
-```sql
-\dt
-SELECT * FROM students;
-SELECT * FROM courses;
-SELECT * FROM enrollement;
-```
+- PostgreSQL
+- SQL
+- pgAdmin 4
+- Git & GitHub
+
+## ▶️ How to Run
+
+1. Create a PostgreSQL database named `unitrack`.
+2. Open it in pgAdmin 4.
+3. Run the table creation and data insertion SQL files.
+4. Execute the query files to explore the database.
+
+## 🎯 Purpose
+
+This project was created to develop practical understanding of **PostgreSQL, relational database design, SQL queries, and table relationships** through a university management use case.
+
+## 👤 Author
+
+**csms02**
