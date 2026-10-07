@@ -25,7 +25,14 @@ unitrack/
 │   ├── 10_json_fulltext.sql
 │   ├── 11_procedures_triggers.sql
 │   └── 12_advanced_queries.sql
-└── screenshots
+├── screenshots/
+│   ├── 03_joins.png
+│   ├── 04_basic_queries.png
+│   ├── 05_aggregation.png
+│   ├── 06_intermediate.png
+│   ├── 07_views.png
+│   └── 12_advance_queries.png
+
 ```
 
 ## 📌 Features
